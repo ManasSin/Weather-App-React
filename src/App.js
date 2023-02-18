@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import HourlyCard from "./HourlyCard";
-import SearchRightChild from "./searchLocation";
 import "./App.css";
-import SearchInput from "./SearchInput";
+
+// import { HourlyCard, SearchInput, SearchRightChild } from "./components";
+import { SearchInput } from "./components/SearchInput";
+import { HourlyCard } from "./components/HourlyCard";
+import { SearchRightChild } from "./components/SearchRightChild";
 
 function App() {
   let localStorageData = JSON.parse(localStorage.getItem("location") || "[]");
@@ -56,10 +58,12 @@ function App() {
             // <HourlyCard userLocation={userLocation} />
             ""
           )}
+          <div className="max-temp"></div>
 
-          <div className="current-info">
-            {/* //* last updated , wind info, humidity, cloud, feels like, visibility */}
-          </div>
+          <div className="min-temp"></div>
+
+          <div className="current-info"></div>
+          {/* //* last updated , wind info, humidity, cloud, feels like, visibility */}
           <div>{/* from current time to 10 + hrs update */}</div>
           <div></div>
           <div></div>

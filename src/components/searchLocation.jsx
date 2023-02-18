@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SearchRightChild = (location) => {
+export const SearchRightChild = (location) => {
   // const locationHistory = () => {
   //   localStorage.setItem("location", JSON.stringify(location));
 
@@ -40,4 +40,4 @@ const SearchRightChild = (location) => {
   );
 };
 
-export default SearchRightChild;
+// export default SearchRightChild;

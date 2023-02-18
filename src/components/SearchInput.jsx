@@ -1,4 +1,4 @@
-const SearchInput = ({
+export const SearchInput = ({
   getWeather,
   setCityName,
   cityName,
@@ -31,4 +31,4 @@ const SearchInput = ({
   );
 };
 
-export default SearchInput;
+// export default SearchInput;

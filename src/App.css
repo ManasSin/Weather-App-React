@@ -173,7 +173,7 @@ body {
 
   z-index: -1;
 
-  background-image: var(--sunnyDay-screen-image-background);
+  background-image: var(--front-screen-image-background);
   /* background-color: #07497b; */
   background-repeat: no-repeat;
   background-position: center;
@@ -301,7 +301,7 @@ body {
   flex: 0 50%;
   padding: var(--gap-1);
 
-  background-color: transparent;
+  background-color: var(--black-secondry);
   border: 3px solid var(--blue-secondry);
   border-radius: var(--radius-small);
 

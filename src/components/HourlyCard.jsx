@@ -1,7 +1,7 @@
 import "./HourlyCard.css";
 import HourlyInsideCard from "./HourlyInsideCard";
 
-const HourlyCard = ({ userLocation: { hour } }) => {
+export const HourlyCard = ({ userLocation: { hour } }) => {
   const currentTime = new Date().getHours();
   return (
     <div className="hourly-cards">
@@ -15,7 +15,7 @@ const HourlyCard = ({ userLocation: { hour } }) => {
   );
 };
 
-export default HourlyCard;
+//  default HourlyCard;
 
 // ({
 //   userLocation: {
