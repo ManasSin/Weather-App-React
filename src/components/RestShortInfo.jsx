@@ -1,5 +1,4 @@
 const RestShortInfo = ({ info: { day } }, { userLocation: userLocation }) => {
-  console.log(userLocation);
   return (
     <div className="card-parent general-info">
       <div className="top-bar">ℹ General Information</div>

@@ -29,7 +29,6 @@ function App() {
     localStorageData.push(stateName);
     localStorage.setItem("location", JSON.stringify(localStorageData));
   };
-  console.log(userLocation);
 
   const lastLocationSearched = Object.values(localStorageData);
 
