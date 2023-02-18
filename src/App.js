@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-// import { HourlyCard, SearchInput, SearchRightChild } from "./components";
-// import SearchInput from "./components/SearchInput";
 import SearchInput from "./components/SearchInput";
 import HourlyCard from "./components/HourlyCard";
 import SearchRightChild from "./components/searchLocation";
@@ -12,6 +10,7 @@ import SnowCm from "./components/SnowCm";
 import RestShortInfo from "./components/RestShortInfo";
 import Sunrise from "./components/Sunrise";
 import Sunset from "./components/Sunset";
+import Thanks from "./components/Thanks";
 
 function App() {
   let localStorageData = JSON.parse(localStorage.getItem("location") || "[]");
@@ -30,9 +29,9 @@ function App() {
     localStorageData.push(stateName);
     localStorage.setItem("location", JSON.stringify(localStorageData));
   };
+  console.log(userLocation);
 
   const lastLocationSearched = Object.values(localStorageData);
-  console.log(lastLocationSearched[lastLocationSearched.length - 1]);
 
   // useEffect(() => {
   //   getWeather(`${lastLocationSearched[lastLocationSearched.length - 1]}`);
@@ -44,7 +43,7 @@ function App() {
     let className = ["image-bg"];
 
     if (userLocation.location) {
-      const type = forecastInfo.day.condition.text;
+      const type = userLocation.current.condition.text;
 
       type === "Sunny"
         ? className.push("suny-bg")
@@ -54,15 +53,31 @@ function App() {
         ? className.push("snow-bg")
         : type === "Patchy rain possible"
         ? className.push("rainy-bg")
+        : type === "Clear"
+        ? className.push("clear-bg")
+        : type === "Mist"
+        ? className.push("mist-bg")
         : className.push("");
     }
 
     return className.join(" ");
   };
 
+  const getCurrentTime = () => {
+    const time = userLocation.current?.last_updated.slice([10], [13]);
+
+    const opacity = time < 6 || time > 19 ? { filter: "brightness(0.4)" } : {};
+
+    return opacity;
+  };
+
   return (
     <section className="main-container">
-      <div className={`${getWeatherType()}`}></div>
+      <div
+        className={`${getWeatherType()}`}
+        style={getCurrentTime()}
+        // style="backgroung-color: rgba(0,0,0,0.2)"
+      ></div>
       <main className="card-holder">
         {/* // todo if localStorage data is present then show anything else. */}
         <section className="search-location">
@@ -104,22 +119,17 @@ function App() {
                 ""
               )}
 
-              <RestShortInfo info={forecastInfo} />
+              <RestShortInfo info={forecastInfo} userLocation={userLocation} />
 
               <Sunrise info={forecastInfo} />
 
               <Sunset info={forecastInfo} />
-
-              <div className="current-info"></div>
-              {/* //* last updated , wind info, humidity, cloud, feels like, visibility */}
-              <div></div>
-              <div></div>
             </>
           ) : (
-            // <HourlyCard userLocation={userLocation} />
-            ""
+            <Thanks />
           )}
         </section>
+        <Thanks />
       </main>
     </section>
   );

@@ -138,13 +138,27 @@
 
 /* * general info  */
 .general-info {
-  height: 100%;
+  /* height: 80%;
+  margin-block: auto; */
 
-  grid-column: span 1;
+  grid-column: span 2;
   grid-row: span 2;
 
   color: var(--text-white);
+
+  /* background-color: var(--blue-secondry); */
 }
+
+.general-info > .inside-cards {
+  background: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-auto-rows: min-content;
+  gap: var(--gap-1);
+}
+/* .general-info .single-inside-card .single-inside-card{
+
+} */
 
 .general-info .single-inside-card {
   overflow: auto;
@@ -152,4 +166,16 @@
 
   justify-content: space-between;
   gap: var(--gap-xs);
+}
+
+.thank-you {
+  grid-column: 1 / -1;
+
+  font: var(--normal-bold);
+  color: var(--text-white);
+
+  align-content: center;
+  justify-content: center;
+
+  text-align: center;
 }
