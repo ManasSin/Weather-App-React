@@ -1,0 +1,43 @@
+@import url("./App.css");
+
+.hourly-cards {
+  grid-column: 1 / -1;
+  /* border: 1px solid red; */
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content;
+
+  padding: var(--gap-xs) var(--gap-1) 0;
+
+  background-color: var(--blue-secondry);
+  backdrop-filter: 70%;
+}
+
+.top-bar {
+  padding: calc(var(--gap-xs) - 5px);
+
+  text-align: center;
+
+  border-bottom: 0.5px solid var(--shadow-color);
+
+  position: sticky;
+}
+
+.child-items {
+  padding: var(--gap-xs);
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--gap-1);
+
+  overflow-x: auto;
+}
+
+.inside-cards {
+  height: 100%;
+  aspect-ratio: 1/1;
+
+  border: 1px solid red;
+}

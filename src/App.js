@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
+import HourlyCard from "./HourlyCard";
 import SearchRightChild from "./searchLocation";
 import "./App.css";
 import SearchInput from "./SearchInput";
 
 function App() {
-  const [userHistory, setUserHistory] = useState([]);
+  let localStorageData = JSON.parse(localStorage.getItem("location") || "[]");
   const [userLocation, setUserLocation] = useState([]);
-  const [cityName, setCityName] = useState("");
+  const [cityName, setCityName] = useState([]);
 
   const apiUrl =
     "https://api.weatherapi.com/v1/forecast.json?key=da0d03f0a14044d3aa6110017231102";
@@ -17,16 +18,9 @@ function App() {
 
     setUserLocation(responcedata);
 
-    const oldLocalStorageData = JSON.parse(
-      localStorage.getItem("location") || "[]"
-    );
-    setUserHistory();
-    localStorage.setItem("location", JSON.stringify(userHistory));
+    localStorageData.push(stateName);
+    localStorage.setItem("location", JSON.stringify(localStorageData));
   };
-
-  useEffect(() => {
-    getWeather(cityName);
-  }, []);
 
   return (
     <section className="main-container">
@@ -34,10 +28,6 @@ function App() {
       <main className="card-holder">
         {/* // todo if localStorage data is present then show anything else. */}
         <section className="search-location">
-          <button onClick={() => console.log(userHistory)}>
-            {" "}
-            log to cobso{" "}
-          </button>
           {userLocation.location ? (
             <>
               <SearchRightChild userLocation={userLocation} />
@@ -45,6 +35,7 @@ function App() {
                 getWeather={getWeather}
                 setCityName={setCityName}
                 cityName={cityName}
+                localStorageData={localStorageData}
               />
             </>
           ) : (
@@ -52,15 +43,24 @@ function App() {
               getWeather={getWeather}
               setCityName={setCityName}
               cityName={cityName}
+              localStorageData={localStorageData}
             />
           )}
         </section>
 
         {/* //? now build the actuall inter face */}
         <section className="ui-section">
-          <div></div>
-          <div></div>
-          <div></div>
+          {userLocation.forecast ? (
+            <HourlyCard userLocation={userLocation.forecast?.forecastday[0]} />
+          ) : (
+            // <HourlyCard userLocation={userLocation} />
+            ""
+          )}
+
+          <div className="current-info">
+            {/* //* last updated , wind info, humidity, cloud, feels like, visibility */}
+          </div>
+          <div>{/* from current time to 10 + hrs update */}</div>
           <div></div>
           <div></div>
         </section>

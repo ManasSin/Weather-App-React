@@ -1,4 +1,9 @@
-const SearchInput = ({ getWeather, setCityName, cityName }) => {
+const SearchInput = ({
+  getWeather,
+  setCityName,
+  cityName,
+  localStorageData,
+}) => {
   return (
     <div className="search-child-right">
       <form action="#" className="search-action">
@@ -19,7 +24,9 @@ const SearchInput = ({ getWeather, setCityName, cityName }) => {
           </svg>
         </button>
       </form>
-      <div className="round-border-tags">saved location</div>
+      <div onMouseEnter={() => {}} className="round-border-tags">
+        saved location
+      </div>
     </div>
   );
 };
