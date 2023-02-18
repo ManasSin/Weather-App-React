@@ -1,13 +1,21 @@
-export const SearchInput = ({
+import SavedLocation from "./SavedLocation";
+
+const SearchInput = ({
   getWeather,
   setCityName,
   cityName,
   localStorageData,
+  lastLocationSearched,
 }) => {
   return (
     <div className="search-child-right">
       <form action="#" className="search-action">
         <input
+          // value={
+          //   lastLocationSearched
+          //     ? lastLocationSearched[lastLocationSearched.length - 1]
+          //     : cityName
+          // }
           value={cityName}
           placeholder="Please Search your location"
           onChange={(e) => setCityName(e.target.value)}
@@ -24,11 +32,13 @@ export const SearchInput = ({
           </svg>
         </button>
       </form>
-      <div onMouseEnter={() => {}} className="round-border-tags">
+      <div onClick={() => {}} className="round-border-tags">
         saved location
       </div>
+      {/* <SavedLocation lastLocationSearched={lastLocationSearched} /> */}
     </div>
   );
 };
 
-// export default SearchInput;
+// export { SearchInput };
+export default SearchInput;

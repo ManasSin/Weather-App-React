@@ -1,4 +1,4 @@
-export const HourlyInsideCard = ({ hour: hour }, currentTime) => {
+const HourlyInsideCard = ({ hour: hour }) => {
   //   console.log(hour);
   return (
     <article className="inside-cards">
@@ -34,4 +34,4 @@ export const HourlyInsideCard = ({ hour: hour }, currentTime) => {
   );
 };
 
-// export default HourlyInsideCard;
+export default HourlyInsideCard;

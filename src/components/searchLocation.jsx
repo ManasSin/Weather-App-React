@@ -1,17 +1,6 @@
 import { useEffect } from "react";
 
-export const SearchRightChild = (location) => {
-  // const locationHistory = () => {
-  //   localStorage.setItem("location", JSON.stringify(location));
-
-  // useEffect(() => {
-  //   localStorage.setItem("location", JSON.stringify(location));
-  // });
-  //   };
-  //   let dataForLocal = [];
-
-  //   localStorage.setItem("location", JSON.stringify(dataForLocal));
-
+const SearchRightChild = (location) => {
   return (
     <div className="search-child-left">
       <p className="temp">
@@ -40,4 +29,5 @@ export const SearchRightChild = (location) => {
   );
 };
 
-// export default SearchRightChild;
+// export { SearchRightChild };
+export default SearchRightChild;
