@@ -1,13 +1,15 @@
 import "./HourlyCard.css";
+import HourlyInsideCard from "./HourlyInsideCard";
 
 const HourlyCard = ({ userLocation: { hour } }) => {
-  //   console.log(hour);
-  hour.map((h) => console.log(h));
+  const currentTime = new Date().getHours();
   return (
     <div className="hourly-cards">
       <aside className="top-bar">⏱️ HOURLY FORECAST</aside>
       <div className="child-items">
-        <article className="inside-cards"></article>
+        {hour.map((hours) => (
+          <HourlyInsideCard hour={hours} currentTime={currentTime} />
+        ))}
       </div>
     </div>
   );
