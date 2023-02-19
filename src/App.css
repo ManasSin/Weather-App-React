@@ -241,8 +241,12 @@ body {
 
   /* overflow: hidden; */
 
-  display: flex;
-  flex-flow: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content;
+  /* flex-flow: column; */
+  /* align-items: stretch;
+  justify-content: space-between; */
 }
 
 .card-holder > * {
@@ -252,6 +256,7 @@ body {
 /* * search location style  */
 
 .search-location {
+  height: max-content;
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
@@ -259,7 +264,8 @@ body {
   /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   grid-template-rows: auto;
-  row-gap: var(--gap-3); */
+  row-gap: var(--gap-3);
+  height: 100%; */
 
   padding: 3% 2% 5%;
 
