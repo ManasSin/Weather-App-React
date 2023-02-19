@@ -1,7 +1,7 @@
 @import url("../App.css");
 
 .card-parent {
-  grid-column: 1 / -1;
+  /* grid-column: 1 / -1; */
 
   border-radius: var(--radius-big);
 
@@ -11,12 +11,12 @@
 
   padding: var(--gap-xs) var(--gap-1) 0;
 
-  /* background-color: var(--blue-secondry); */
   backdrop-filter: blur(8px);
   overflow: hidden;
+}
 
-  /* position: sticky;
-  top: 0; */
+.hourly-cards {
+  grid-column: 1/-1;
 }
 
 .card-parent::after {
@@ -48,8 +48,8 @@
 
   border-bottom: 0.5px solid var(--shadow-color);
 
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
 
   font: var(--normal-bold);
   color: var(--text-white);
@@ -74,14 +74,12 @@
   height: 100%;
   aspect-ratio: 1/1;
 
-  /* border: 1px solid red; */
   border-radius: var(--radius-small);
 
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
-  /* gap: calc(var(--gap-xs) - 7px); */
 
   color: var(--text-white);
   font: var(--normal-bold);
@@ -89,19 +87,18 @@
   background: var(--black-secondry);
 }
 
-/* .inside-cards p:last-of-type {
-  font: var(--normal-light);
-} */
-
 .inside-cards svg {
   height: 30px;
 }
 
 .min-temp,
-.wind {
+.wind,
+.sunset,
+.sunrise,
+.Humidity {
   height: 100%;
   margin-block: auto;
-  grid-column: span 1;
+  /* grid-column: span 1; */
   padding-bottom: var(--gap-1);
 
   color: var(--text-white);
@@ -130,7 +127,7 @@
   display: block;
 }
 
-.wind .single-inside-card {
+.wind.single-inside-card {
   font: var(--title-font);
   font-size: 32px;
   align-items: center;
@@ -138,27 +135,21 @@
 
 /* * general info  */
 .general-info {
-  /* height: 80%;
-  margin-block: auto; */
-
   grid-column: span 2;
   grid-row: span 2;
 
   color: var(--text-white);
-
-  /* background-color: var(--blue-secondry); */
 }
 
 .general-info > .inside-cards {
+  width: 100%;
+
   background: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-auto-rows: min-content;
   gap: var(--gap-1);
 }
-/* .general-info .single-inside-card .single-inside-card{
-
-} */
 
 .general-info .single-inside-card {
   overflow: auto;
@@ -169,7 +160,7 @@
 }
 
 .thank-you {
-  grid-column: 1 / -1;
+  grid-column: span 3;
 
   font: var(--normal-bold);
   color: var(--text-white);
@@ -178,4 +169,12 @@
   justify-content: center;
 
   text-align: center;
+}
+
+@media (max-width: 450px) {
+  .min-temp .single-inside-card {
+    /* display: flex; */
+    flex-flow: row;
+    justify-content: space-evenly;
+  }
 }

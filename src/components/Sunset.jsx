@@ -1,6 +1,6 @@
 const Sunset = ({ info: { astro } }) => {
   return (
-    <div className="card-parent wind">
+    <div className="card-parent sunset">
       <div className="top-bar">🌤️ Sunset.</div>
       <div className="single-inside-card">{astro.sunset}</div>
     </div>

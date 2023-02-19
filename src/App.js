@@ -11,6 +11,7 @@ import RestShortInfo from "./components/RestShortInfo";
 import Sunrise from "./components/Sunrise";
 import Sunset from "./components/Sunset";
 import Thanks from "./components/Thanks";
+import Humidity from "./components/Humidity";
 
 function App() {
   let localStorageData = JSON.parse(localStorage.getItem("location") || "[]");
@@ -72,11 +73,7 @@ function App() {
 
   return (
     <section className="main-container">
-      <div
-        className={`${getWeatherType()}`}
-        style={getCurrentTime()}
-        // style="backgroung-color: rgba(0,0,0,0.2)"
-      ></div>
+      <div className={`${getWeatherType()}`} style={getCurrentTime()}></div>
       <main className="card-holder">
         {/* // todo if localStorage data is present then show anything else. */}
         <section className="search-location">
@@ -123,12 +120,15 @@ function App() {
               <Sunrise info={forecastInfo} />
 
               <Sunset info={forecastInfo} />
+
+              <Humidity info={userLocation.current} />
+
+              <Thanks />
             </>
           ) : (
             <Thanks />
           )}
         </section>
-        <Thanks />
       </main>
     </section>
   );

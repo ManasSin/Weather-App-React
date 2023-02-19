@@ -4,7 +4,7 @@ import HourlyInsideCard from "./HourlyInsideCard";
 const HourlyCard = ({ userLocation: { hour } }) => {
   const currentTime = new Date().getHours();
   return (
-    <div className="card-parent">
+    <div className="card-parent hourly-cards">
       <aside className="top-bar">⏱️ HOURLY FORECAST</aside>
       <div className="child-items">
         {hour.map((hours) => (
