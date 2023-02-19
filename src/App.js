@@ -15,8 +15,14 @@ import Humidity from "./components/Humidity";
 
 function App() {
   let localStorageData = JSON.parse(localStorage.getItem("location") || "[]");
+  const lastLocationSearched = Object.values(localStorageData);
+
   const [userLocation, setUserLocation] = useState([]);
-  const [cityName, setCityName] = useState([]);
+  const [cityName, setCityName] = useState(() =>
+    lastLocationSearched
+      ? lastLocationSearched[lastLocationSearched.length - 1]
+      : []
+  );
 
   const apiUrl =
     "https://api.weatherapi.com/v1/forecast.json?key=da0d03f0a14044d3aa6110017231102";
@@ -31,11 +37,9 @@ function App() {
     localStorage.setItem("location", JSON.stringify(localStorageData));
   };
 
-  const lastLocationSearched = Object.values(localStorageData);
-
-  // useEffect(() => {
-  //   getWeather(`${lastLocationSearched[lastLocationSearched.length - 1]}`);
-  // }, []);
+  useEffect(() => {
+    getWeather(cityName);
+  }, []);
 
   const forecastInfo = userLocation.forecast?.forecastday[0];
 
@@ -57,6 +61,8 @@ function App() {
         ? className.push("clear-bg")
         : type === "Mist"
         ? className.push("mist-bg")
+        : type === "Fog"
+        ? className.push("fog-bg")
         : className.push("");
     }
 
@@ -115,7 +121,7 @@ function App() {
                 ""
               )}
 
-              <RestShortInfo info={forecastInfo} userLocation={userLocation} />
+              <RestShortInfo info={forecastInfo} location={userLocation} />
 
               <Sunrise info={forecastInfo} />
 

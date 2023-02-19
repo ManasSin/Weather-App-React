@@ -90,6 +90,8 @@ h6 {
 
   --mistDay-screen-image-background: url("https://images.unsplash.com/photo-1539775771554-4044ce231f09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
 
+  --fogDay-screen-image-background: url("https://images.unsplash.com/photo-1633884186391-e83b43d3ccd1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+
   /* * color variable */
 
   /* ? text color */
@@ -184,10 +186,10 @@ body {
   background-image: var(--front-screen-image-background);
   /* background-color: #07497b; */
   background-repeat: no-repeat;
-  background-position: fixed;
+  background-position: center;
   background-size: cover;
 
-  filter: blur(3px);
+  filter: blur(5px);
 
   /* opacity: 80%; */
 }
@@ -218,6 +220,10 @@ body {
 
 .mist-bg {
   background-image: var(--mistDay-screen-image-background);
+}
+
+.fog-bg {
+  background-image: var(--fogDay-screen-image-background);
 }
 
 .card-holder {
@@ -387,7 +393,7 @@ body {
 
 .ui-section {
   width: 100%;
-  height: 68%;
+  height: 75%;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

@@ -1,4 +1,4 @@
-const RestShortInfo = ({ info: { day } }, userLocation) => {
+const RestShortInfo = ({ info: { day }, location: { location } }) => {
   return (
     <div className="card-parent general-info">
       <div className="top-bar">ℹ General Information</div>
@@ -39,24 +39,18 @@ const RestShortInfo = ({ info: { day } }, userLocation) => {
             {day.condition.text}
           </p>
         </div>
-        {/* <div className="single-inside-card">
+        <div className="single-inside-card">
           <p>
             <span>Weather condition </span>
-            {userlocation.lat}
+            {location.lat}
           </p>
         </div>
         <div className="single-inside-card">
           <p>
             <span>Weather condition </span>
-            {userlocation.lon}
+            {location.lon}
           </p>
-        </div> */}
-        {/* <div className="single-inside-card">
-          <p>
-            <span>Weather condition </span>
-            {alldata}
-          </p>
-        </div> */}
+        </div>
       </div>
     </div>
   );

@@ -149,6 +149,8 @@
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   grid-auto-rows: min-content;
   gap: var(--gap-1);
+
+  overflow-y: auto;
 }
 
 .general-info .single-inside-card {
@@ -160,7 +162,7 @@
 }
 
 .thank-you {
-  grid-column: span 3;
+  grid-column: 1 / -1;
 
   font: var(--normal-bold);
   color: var(--text-white);
@@ -191,9 +193,9 @@
     /* grid-column: span 3; */
   }
 
-  /* .general-info {
-    grid-row: span 3;
-  } */
+  .general-info {
+    grid-row: span 2;
+  }
 }
 
 @media (max-width: 450px) {
@@ -205,6 +207,10 @@
   .general-info,
   .thank-you {
     grid-column: 1 / -1;
+  }
+
+  .general-info {
+    grid-row: span 3;
   }
 
   .min-temp .single-inside-card {
