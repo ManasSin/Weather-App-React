@@ -171,7 +171,42 @@
   text-align: center;
 }
 
+@media (max-width: 699px) {
+  .min-temp,
+  .wind,
+  .sunset,
+  .sunrise,
+  .Humidity,
+  .general-info,
+  .thank-you {
+    grid-column: span 1;
+  }
+
+  .thank-you,
+  .general-info {
+    grid-column: span 2;
+  }
+
+  .thank-you {
+    /* grid-column: span 3; */
+  }
+
+  /* .general-info {
+    grid-row: span 3;
+  } */
+}
+
 @media (max-width: 450px) {
+  .min-temp,
+  .wind,
+  .sunset,
+  .sunrise,
+  .Humidity,
+  .general-info,
+  .thank-you {
+    grid-column: 1 / -1;
+  }
+
   .min-temp .single-inside-card {
     /* display: flex; */
     flex-flow: row;
