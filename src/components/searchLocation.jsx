@@ -5,7 +5,7 @@ const SearchRightChild = (location) => {
     <div className="search-child-left">
       <p className="temp">
         {location.userLocation.current
-          ? `${location.userLocation.current.temp_c}`
+          ? `${location.userLocation.current.temp_c}°c`
           : "N/A"}
         {/* NA */}
       </p>

@@ -205,12 +205,12 @@
   .sunset,
   .sunrise,
   .Humidity,
-  .general-info,
   .thank-you {
     grid-column: 1 / -1;
   }
 
   .general-info {
+    grid-column: span 2;
     grid-row: span 3;
   }
 
